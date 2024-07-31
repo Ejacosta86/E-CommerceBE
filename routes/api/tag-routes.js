@@ -30,6 +30,7 @@ router.get('/:id', async (req, res) => {
  }
 });
 
+//create a new tag
 router.post('/', async (req, res) => {
   try{
     const newtagData = await Tag.create(req.body);
@@ -38,7 +39,8 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+ 
+//update tag name
 router.put('/:id', async (req, res) => {
   try{
     const [updatedRows] = await Tag.update(req.body,{
